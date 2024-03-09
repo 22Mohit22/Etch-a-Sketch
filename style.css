@@ -6,8 +6,9 @@
 }
 .container{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    background-color: rgb(1, 48, 1);
     flex-wrap: wrap;
     width: 760px;
     height: 760px;
@@ -17,8 +18,4 @@
 .grid-box{
     border: 1px solid rgb(177, 177, 177);
     transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.grid-box.activated{
-    background-color: aqua;
 }
