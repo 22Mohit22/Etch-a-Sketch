@@ -5,7 +5,7 @@ gridContainer.className = 'container';
 function createStartingGrid() {
 
     for(let i = 0; i < 16*16; i++) {
-        const startingBox = document.createElement('div');
+        var startingBox = document.createElement('div');
         startingBox.className = 'grid-box';
         gridContainer.appendChild(startingBox);
         startingBox.style.width = '45px';
@@ -15,5 +15,11 @@ function createStartingGrid() {
     
 }
 
+gridContainer.addEventListener('mouseover', (ev) => {
+    if(ev.target.classList.contains('grid-box')) {
+        ev.target.classList.add('activated');
+    }
+})
 
 createStartingGrid();
+
