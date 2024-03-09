@@ -1,0 +1,26 @@
+.app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: greenyellow;
+    flex-wrap: wrap;
+    width: 750px;
+    height: 750px;
+    
+}
+
+.grid-box{
+    border: 1px solid rgb(177, 177, 177);
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.grid-box:hover{
+    background-color: aqua;
+}
+
