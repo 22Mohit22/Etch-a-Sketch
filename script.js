@@ -48,12 +48,20 @@ function createGrid(count) {
 
 function promptForValue() {
     grid.innerHTML = '';
-    let noOfGridsPerSide = prompt('Enter number of grids per side.\n(Not more than 100)');
-    if(noOfGridsPerSide > 100) {
+    let noOfGridsPerSide = prompt('Enter number of grids per side.\n(1 - 100)');
+    if(!isNaN(parseFloat(noOfGridsPerSide)) 
+        && isFinite(noOfGridsPerSide)) {
+        if(noOfGridsPerSide <= 100) {
+            if(noOfGridsPerSide > 0) {
+                createGrid(noOfGridsPerSide);
+            } else {
+                promptForValue();
+            }
+        } else {
+            promptForValue();
+        }
+    } else {
         promptForValue();
-    } else{
-
-        createGrid(noOfGridsPerSide);
     }
 }
 
