@@ -1,22 +1,25 @@
 const grid = document.querySelector('.grid');
-const gridContainer = document.createElement('div');
-gridContainer.className = 'container';
 
-function createStartingGrid() {
+function createStartingGrid() {    
 
-    for(let i = 0; i < 16*16; i++) {
-        let startingBox = document.createElement('div');
-        startingBox.className = 'grid-box';
-        gridContainer.appendChild(startingBox);
-        startingBox.style.width = '45px';
-        startingBox.style.height = '45px';
+    for(let i=0; i < 16; i++) {
+        const row = document.createElement('div');
+        row.classList.add('grid-row');
+        row.style.margin = '.09px';
+        for(let j=0; j < 16; j++) {
+            const col = document.createElement('div');
+            col.classList.add('grid-col');
+            col.style.width = '45px';
+            col.style.height = '45px';
+
+            row.appendChild(col);
+        }
+        grid.appendChild(row);
     }
-    grid.appendChild(gridContainer);
-    
 }
 
-gridContainer.addEventListener('mouseover', (ev) => {
-    if(ev.target.classList.contains('grid-box')) {
+grid.addEventListener('mouseover', (ev) => {
+    if(ev.target.classList.contains('grid-col')) {
         ev.target.style.backgroundColor = `rgb(${createRandomRGB()})`;
     }
 })
@@ -25,20 +28,33 @@ function createGrid(count) {
 
     const length = (760/count) - 2.5;
 
-    for(let i = 0; i < count*count; i++) {
-        let box = document.createElement('div');
-        box.className = 'grid-box';
-        gridContainer.appendChild(box);
-        box.style.width = `${length}px`;
-        box.style.height = `${length}px`;
+    for(let i=0; i < count; i++) {
+        const row = document.createElement('div');
+        row.classList.add('grid-row');
+        row.style.height = '100%';
+        row.style.width = `${length}px`;
+
+        for(let j=0; j < count; j++) {
+            const col = document.createElement('div');
+            col.classList.add('grid-col');
+            col.style.width = `${length}px`;
+            col.style.height = `${length}px`;
+
+            row.appendChild(col);
+        }
+        grid.appendChild(row);
     }
-    grid.appendChild(gridContainer);
 }
 
 function promptForValue() {
-    gridContainer.innerHTML = '';
+    grid.innerHTML = '';
     let noOfGridsPerSide = prompt('Enter number of grids per side.\n(Not more than 100)');
-    createGrid(noOfGridsPerSide);
+    if(noOfGridsPerSide > 100) {
+        promptForValue();
+    } else{
+
+        createGrid(noOfGridsPerSide);
+    }
 }
 
 function createRandomRGB() {
@@ -52,3 +68,12 @@ function createRandomRGB() {
 }
 
 createStartingGrid();
+
+function changeButtonColor() {
+    const btn = document.querySelector('button');
+    btn.addEventListener('mousemove', () => {
+        btn.style.backgroundColor = `rgb(${createRandomRGB()})`;
+    })
+}
+
+changeButtonColor()
