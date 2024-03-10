@@ -15,8 +15,22 @@
     left: 0;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 760px;
     width: 400px;
     margin: 0 20px;
+}
+.info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 600px;
+}
+
+.btn-and-info h1{
+    margin: 0;
+    font-size: 150%;
+    color: rgb(50, 150, 225);
 }
 
 button{
@@ -24,7 +38,7 @@ button{
     width: 400px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(50, 149, 255);
+    background-color: rgb(50, 150, 255);
     color: white;
     cursor: pointer;
     transition: all .3s ease;
@@ -35,7 +49,6 @@ button{
     left: 50px;
     display: flex;
     justify-content: center;
-    padding: 0;
     width: 760px;
     height: 760px;
     
@@ -56,7 +69,7 @@ button{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid rgb(160, 160, 160);
+    border: 1px solid rgb(0, 0, 0);
     width: 45px;
     height: 100%;
     transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);

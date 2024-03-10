@@ -46,6 +46,8 @@ function createGrid(count) {
     }
 }
 
+
+
 function promptForValue() {
     grid.innerHTML = '';
     let noOfGridsPerSide = prompt('Enter number of grids per side.\n(1 - 100)');
